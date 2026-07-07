@@ -28,7 +28,7 @@ def calculate_delivery_fee(distance_km: float, order_total: float) -> float:
     if order_total < 0:
         raise ValueError("O valor do pedido não pode ser negativo.")
 
-    if order_total > VALOR_FRETE_GRATIS:
+    if order_total >= VALOR_FRETE_GRATIS:
         return 0.0
 
     return round(TAXA_BASE + (TAXA_POR_KM * distance_km), 2)
